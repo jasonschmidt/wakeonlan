@@ -1,0 +1,36 @@
+<?php
+	/*
+	Remote Wake/Sleep-On-LAN Server [CONFIGURATION FILE]
+	https://github.com/sciguy14/Remote-Wake-Sleep-On-LAN-Server
+	Author: Jeremy E. Blum (http://www.jeremyblum.com)
+	License: GPL v3 (http://www.gnu.org/licenses/gpl.html)
+	
+	UPDATE THE VALUES IN THIS FILE AND CHANGE THE NAME TO: "config.php"
+	*/
+
+	//Choose a passphrase and find the sha256 hash of that passphrase.
+	//You can use an online calculator to generate the hash: http://www.xorbin.com/tools/sha256-hash-calculator.
+	//Unless you are using an SSL connection to your server, remember that passphrases could still be obtained via a man-in-the-middle attack.
+	$APPROVED_HASH = "06e49cdeb090eba6114ea5c856330c219ca4cb42e8acc9505a51007ed783b91c";
+	
+	//This is the number of times that the WOL server will try to ping the target computer to check if it has woken up. Default = 10.
+	$MAX_PINGS = 30;
+	
+	//This is the MAC address of the Network Interface on the computer you are trying to wake.
+	$COMPUTER_MAC = '48:5b:39:45:c0:63';
+	
+	//This is the LOCAL IP address of the computer you are trying to wake.  Use a reserved DHCP through your router's administration interace to ensure it doesn't change.
+	$COMPUTER_LOCAL_IP = '23.114.26.62';
+	
+	//This is the Port being used by the Windows SleepOnLan Utility to initiate a Sleep State
+	//http://www.ireksoftware.com/SleepOnLan/
+	$COMPUTER_SLEEP_CMD_PORT = 7760;
+	
+	//This is the location of the bootstrap style folder relative to your index and config file. Default = "" (Same folder as this file)
+	//Directory must be called "bootstrap". You may wish to move if this WOL script is the "child" of a larger web project on your Pi, that will also use bootstrap styling.
+	//If if it on directory up, for example, you would set this to "../"
+	//Two directories up? Set too "../../"
+	//etc...
+	$BOOTSTRAP_LOCATION_PREFIX = ""
+?>sudo shutdown-h now
+
